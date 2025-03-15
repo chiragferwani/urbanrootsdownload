@@ -1,0 +1,75 @@
+---
+import '../styles/main.css'
+
+const heading = "UrbanRoots";
+const subheading = "Find Your Tribe Wherver You Go.";
+const appIcon = "/images/app-icon.svg";
+const appScreenshot = "/images/app-screenshot.png";
+const footerImage = "/images/banners.svg";
+const badges = [
+	{
+		link: "/urbanroots.apk",
+		image: "/images/app-store-badge.svg"
+	},
+	{
+		link: "/urbanroots.apk",
+		image: "/images/google-play-badge.png"
+	},
+];
+const authors = [
+	{
+		name: "UrbanRoots App Team",
+		url: "https://theurbanroots.vercel.app"
+	},
+	{
+		name: "",
+		url: "https://theurbanroots.vercel.app"
+	},
+];
+const pageTitle = "App Showcase"
+const favicon = "/images/favicon.svg"
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href={favicon} />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{pageTitle}</title>
+	</head>
+	<body>
+		<div class="container">
+			<main>
+				<div class="text-container">
+					<img src={appIcon} class="app-icon">
+					<h1 class="heading">{heading}</h1>
+					<h2 class="subheading">{subheading}</h2>
+					<div class="badge-container">
+						{badges.map(badge => (
+							<div>
+								<a href={badge.link} target="_blank">
+									<img src={badge.image} class="badge" />
+								</a>
+							</div>
+						))}
+					</div>
+					<p class="authors">Made with &#x2665; by 
+						{authors.map((author, index) => (
+								<span>
+									{index > 0 ? (index === authors.length - 1 ? '' : ', ') : ''}
+									<a href={author.url} target="_blank">{author.name}</a>
+								</span>
+						))}
+					</p>
+				</div>
+				<div>
+					<img src={appScreenshot} class="app-screenshot">
+				</div>
+			</main>
+			<footer>
+				<img src={footerImage} class="footer-image">
+			</footer>
+		</div>
+	</body>
+</html>

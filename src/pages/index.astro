@@ -2,7 +2,7 @@
 import '../styles/main.css'
 
 const heading = "UrbanRoots";
-const subheading = "Find Your Tribe Wherver You Go.";
+const subheading = "Find Your Tribe Wherever You Go.";
 const appIcon = "/images/app-icon.svg";
 const appScreenshot = "/images/app-screenshot.png";
 const footerImage = "/images/banners.svg";
@@ -21,69 +21,52 @@ const authors = [
 		name: "UrbanRoots App Team",
 		url: "https://theurbanroots.vercel.app"
 	},
-	{
-		name: "",
-		url: "https://theurbanroots.vercel.app"
-	},
 ];
 const pageTitle = "App Showcase"
 const favicon = "/images/favicon.svg"
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href={favicon} />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-	</head>
-	<body>
-		<div class="container">
-			<main>
-				<div class="text-container">
-					<img src={appIcon} class="app-icon">
-					<h1 class="heading">{heading}</h1>
-					<h2 class="subheading">{subheading}</h2>
-					<div class="badge-container">
-						<a href="/images/urbanroots.apk" download><button class="cssbuttons-io">
-							<span
-							  ><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-								<path d="M0 0h24v24H0z" fill="none"></path>
-								<path
-								  d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66l6.552-18h2.128L9.788 21z"
-								  fill="currentColor"
-								></path>
-							  </svg>
-							  Download APK</span
-							>
-						  </button></a>
-						  <br>
-						<!-- {badges.map(badge => (
-							<div>
-								<a href="/urbanroots.apk">
-									<img src={badge.image} class="badge" />
-								</a>
-							</div>
-						))} -->
-					</div>
-					<br>
-					<p class="authors">Made with &#x2665; by 
-						{authors.map((author, index) => (
-								<span>
-									{index > 0 ? (index === authors.length - 1 ? '' : ', ') : ''}
-									<a href={author.url} target="_blank">{author.name}</a>
-								</span>
-						))}
-					</p>
-				</div>
-				<div>
-					<img src={appScreenshot} class="app-screenshot">
-				</div>
-			</main>
-			<footer>
-				<img src={footerImage} class="footer-image">
-			</footer>
-		</div>
-	</body>
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href={favicon} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <div class="container mx-auto p-4 md:p-6">
+        <main class="flex flex-col md:flex-row items-center justify-center text-center md:text-left space-y-6 md:space-y-0 md:space-x-10">
+            <div class="w-full md:w-1/2">
+                <img src={appIcon} class="app-icon w-16 h-16 md:w-20 md:h-20 mx-auto md:mx-0" />
+                <h1 class="heading text-2xl md:text-3xl font-bold mt-4">{heading}</h1>
+                <h2 class="subheading text-lg text-gray-600 mt-2">{subheading}</h2>
+                <div class="badge-container flex flex-col md:flex-row justify-center md:justify-start space-y-2 md:space-y-0 md:space-x-4 mt-4">
+                    <a href="/public/images/urbanroots.apk" download>
+                        <button class="cssbuttons-io w-full md:w-auto">
+                            <span>
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 inline">
+                                    <path d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66l6.552-18h2.128L9.788 21z" fill="currentColor"></path>
+                                </svg>
+                                Download APK
+                            </span>
+                        </button>
+                    </a>
+                </div>
+				<br>
+                <p class="authors text-sm text-gray-500 mt-4">Made with ❤️ by UrbanRoots App Team
+                    
+                </p>
+            </div>
+            <div class="w-full md:w-1/2 flex justify-center">
+                <img src={appScreenshot} class="app-screenshot w-full max-w-xs md:max-w-sm rounded-lg shadow-md" />
+            </div>
+        </main>
+        <footer class="mt-10">
+            <img src={footerImage} class="footer-image w-full" />
+        </footer>
+    </div>
+</body>
 </html>
